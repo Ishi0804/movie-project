@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime AddMovie</title>
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main>
+    <section class="header"><%- include("./partials/header.ejs") -%></section>
+    <section class="aside"><%- include("./partials/aside.ejs") -%></section>
+    <section class="AddData panel_padding" style="width: 100%; height: 100vh;">
+      <div class="form_box">
+        <form action="/posterData" method="post" enctype="multipart/form-data">
+          <h2>Add Movie</h2>
+          <input type="text" name="name" placeholder="Title" required>
+          <input type="date" name="date" class="textdate" placeholder="Release Date" required>
+          <input type="text" name="movieType" placeholder="Movie Type" required>
+          <textarea name="dsc" rows="3" cols="32" placeholder="Description"></textarea>
+          <input type="file" name="image" class="file">
+          <input type="url" name="trailer" placeholder="URL Link">
+          <input type="submit" value="Add Movie" class="btn">
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

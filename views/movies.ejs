@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETFLIX MOVIES</title>
+    <!-- css -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <section class="header"><%- include("./partials/header.ejs") %></section>
+      <section class="aside"><%- include("./partials/aside.ejs") %></section>
+      <section class="layout">
+        <section class="cardArea" style="margin: 50px 30px">
+          <div class="cardBox flex">
+            <% movies.map((val) => { %>
+            <div class="card">
+              <div class="card_img">
+                <img src="<%= val.img %>" alt="<%= val.name %> image" />
+              </div>
+              <div class="hide">
+                <div class="rating" style="margin: 5px 10px">
+                  <i class="fa fa-star" style="color: #f1c40f"></i> <%=
+                  val.rating %>
+                </div>
+                <div class="cardTitle">
+                  <h2><%= val.name %></h2>
+                </div>
+                <div class="date_category">
+                  <span class="date"><%= val.date %></span>
+                  <span class="category"><%= val.category %></span>
+                </div>
+                <div class="dsc" style="margin-bottom: 18px;">
+                  <p><%= val.dsc %></p>
+                </div>
+                <div class="flex" style="justify-content: space-evenly;">
+                  <div class="delete">
+                    <a href="/deleteData?id=<%= val._id %>">
+
+                      <button class="btn tailer">Delete Movie</button></a
+                    >
+                  </div>
+                  <div class="edit">
+                    <a href="/editpage?id=<%= val._id %>"><button class="btn tailer">Edit Movie</button></a>
+                  </div>
+                </div>
+                <div class="tailer">
+                  <a href="/tailer?id=<%= val._id %>"
+                    ><button class="btn tailer">Watch Tailer</button></a
+                  >
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
